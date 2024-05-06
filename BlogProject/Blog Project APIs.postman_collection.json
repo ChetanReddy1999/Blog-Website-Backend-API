@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "871e15aa-39d7-43bf-b227-ba6c11f68795",
+		"name": "Blog Project APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31477871"
+	},
+	"item": [
+		{
+			"name": "SignUp API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "xyz",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abc",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login API",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "abc",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "abc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost:5000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Blog API",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inh5eiIsImV4cCI6MTcxNTAxNzkxNX0.Pifhu187B4kMPdL-_rPWeQj2Qzoec8-0EQufBq71BBA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Importance of Education\",\n    \"content\":\"Education is mandatory for everyone and it is a birth right\",\n    \"author\":\"abc\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/createblog",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"createblog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Blogs API",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImV4cCI6MTcxNTAxODExN30.kqbY-T_gabwJoYsaaije6_1IyUUVFkNkwumZcQCbhuk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/listblog?start_date=2024-1-1&end_date=2024-5-3&page=1&per_page=15&author=abc",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"listblog"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-1-1"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-5-3"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "per_page",
+							"value": "15"
+						},
+						{
+							"key": "author",
+							"value": "abc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Blog Single",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inh5eiIsImV4cCI6MTcxNTAxNzkxNX0.Pifhu187B4kMPdL-_rPWeQj2Qzoec8-0EQufBq71BBA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/listblog/6638a546da2157f9c2c01153",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"listblog",
+						"6638a546da2157f9c2c01153"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Blog API",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImV4cCI6MTcxNTAxODExN30.kqbY-T_gabwJoYsaaije6_1IyUUVFkNkwumZcQCbhuk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/deleteblog/6638a546da2157f9c2c01153",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"deleteblog",
+						"6638a546da2157f9c2c01153"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update blog API",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImV4cCI6MTcxNTAxODExN30.kqbY-T_gabwJoYsaaije6_1IyUUVFkNkwumZcQCbhuk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Importance of Education for children\",\n    \"content\":\"Education is mandatory for everyone and it is a birth right\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/update/6638a59218c5f0c730825828",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"update",
+						"6638a59218c5f0c730825828"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
