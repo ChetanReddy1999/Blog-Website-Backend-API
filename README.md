@@ -13,7 +13,7 @@
 
 
 ## Requirements
-1. User should install mongo
+1. User should install mong<br>
 If User has docker enginer in their machine, they can directly run this command to initialize mongo server in your local.
 ```
 docker run --name my-mongodb -d -p 27017:27017 mongo:latest
@@ -66,6 +66,8 @@ curl --location 'localhost:5000/signup' \
 }
 ```
 
+---
+
 ### Login API:
 API endpoint => [{{baseUrl}}/login]()
 
@@ -99,6 +101,7 @@ Eg: If your username is Charles and password is East@1234. Then encode the strin
 ```
 **Note** :- Above generate token is very important. That token is necessary to make subsequent calls.
 
+---
 
 ### Create Blog API:
 API endpoint => [{{baseUrl}}/createblog]()
@@ -135,10 +138,20 @@ curl --location 'localhost:5000/createblog' \
 }
 ```
 
+---
+
 ### List Blog API:
 API endpoint => [{{baseUrl}}/listblog]()
 
 Method => GET
+
+| QueryParam        | Required     | Description |
+| ------------- |:-------------:| :---------|
+| author      | optional| Name of author |
+| start_date      | optional |  It is the date from which you want blogs .Provide date in 'YYYY-MM-DD'. |
+| end_date | optional      | It is the date till which you want blogs .Provide date in 'YYYY-MM-DD'.  |
+|page | optional | page number, used to paginate the API|
+|per_page | optional | number of records per page, defaults to 10records per page|
 
 **cURL command**
 ```
@@ -158,7 +171,6 @@ curl --location 'localhost:5000/listblog?start_date=2024-1-1&end_date=2024-5-3&p
 ```
 <img width="1292" alt="image" src="https://github.com/ChetanReddy1999/Blog_backend_API/assets/68106127/ee9bccc5-fbc0-4e2b-b4b6-181142993f5e">
 
-
 Expected response
 ```
 [
@@ -171,6 +183,8 @@ Expected response
     }
 ]
 ```
+
+---
 
 ### List Single Blog API:
 API endpoint => [{{baseUrl}}/listblog/<blog_id>]()
@@ -206,6 +220,8 @@ Expected response
 ]
 ```
 
+---
+
 ### Delete Blog API:
 API endpoint => [{{baseUrl}}/delete/<blog_id>]()
 
@@ -235,6 +251,8 @@ Expected response
     "message": "Blog deleted successfully"
 }
 ```
+
+---
 
 ### Update Blog API:
 API endpoint => [{{baseUrl}}/update/<blog_id>]()
@@ -271,6 +289,8 @@ Expected response
 }
 ```
 
+---
+
 #### Important Note:
 - All APIs except signUp API require authentication to make API call.
-- API calls like Update,Delete blog require authorization, meaning a user can delete delete or update his own blog and cannot have any authority on other blogs.
+- API calls like Update,Delete blog require authorization, meaning a user can delete or update his own blog and cannot have any authority on other blogs.
