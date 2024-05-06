@@ -37,7 +37,7 @@ OR   follow mongod installation guide as mentioned in this link
 
 # API Documentation:
 **BaseUrl**: [http://localhost:<port_number>]()<br>
-**Note** : A zip file with all the API data is provided in the repository, you can import that file in postman to test the APIs effortlessly.
+**Note** : A postman collection json file with all the API data is provided in the repository, you can import that file in postman to test the APIs effortlessly.
 ### SignUp API:
 API endpoint => [{{baseUrl}}/signup]()
 
@@ -294,3 +294,14 @@ Expected response
 #### Important Note:
 - All APIs except signUp API require authentication to make API call.
 - API calls like Update,Delete blog require authorization, meaning a user can delete or update his own blog and cannot have any authority on other blogs.
+
+### Run UnitTest cases 
+
+You can run unit test with the below command
+```
+coverage run --source=Project -m pytest -v tests && coverage report -m
+```
+
+It will show coverage report, Total coverage of this project is 93% as shown in below figure
+<img width="1320" alt="image" src="https://github.com/ChetanReddy1999/Blog_backend_API/assets/68106127/1e172dd4-d647-43c6-a6e8-3777cbfa77b3">
+
