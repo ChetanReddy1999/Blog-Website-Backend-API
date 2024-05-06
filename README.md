@@ -161,8 +161,116 @@ curl --location 'localhost:5000/listblog?start_date=2024-1-1&end_date=2024-5-3&p
 
 Expected response
 ```
+[
+    {
+        "_id": "6635c3535fe652c2ffc49faa",
+        "author": "Demada Chetan",
+        "content": "Education is mandatory for evyone and it is a right",
+        "created_at": "Sat, 04 May 2024 05:10:43 GMT",
+        "title": "Importance of education"
+    }
+]
+```
+
+### List Single Blog API:
+API endpoint => [{{baseUrl}}/listblog/<blog_id>]()
+
+Method => GET
+
+**cURL command**
+```
+curl --location 'localhost:5000/listblog/6635c3535fe652c2ffc49faa' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImV4cCI6MTcxNDk0NzcwOH0.pqma2DnsYzKNUvaNfQG8G8f2FtfsnbPV5-z1GidOmSo'
+```
+1. Make sure you copy the token from Login API and paste in authorization header in the above curl command.
+2. Populate path field with blog_id.
+
+**Through Postman**
+```
+- Open List Single Blog API in postman.
+- Make sure you copy the token from Login API and paste in authorization header as Bearer token.
+- Add blog id in the path field as shown in figure.
+```
+<img width="1296" alt="image" src="https://github.com/ChetanReddy1999/Blog_backend_API/assets/68106127/d9898378-e7e5-43f4-8c4a-01b693aad814">
+
+Expected response
+```
+[
+    {
+        "_id": "6635c3535fe652c2ffc49faa",
+        "author": "Demada Chetan",
+        "content": "Education is mandatory for evyone and it is a right",
+        "created_at": "Sat, 04 May 2024 05:10:43 GMT",
+        "title": "Importance of education"
+    }
+]
+```
+
+### Delete Blog API:
+API endpoint => [{{baseUrl}}/delete/<blog_id>]()
+
+Method => DELETE
+
+**Note: User can Delete only his own blog and API returns error if tries to delete other user blog.**
+
+**cURL command**
+```
+curl --location --request DELETE 'localhost:5000/deleteblog/6635ce13ef5541d077de07c9' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiYyIsImV4cCI6MTcxNDkyNzk0NX0.j2tjcdBIXwsFyrxk6k8Zjt-k0mAIUmAPKDnrBI2TPZU'
+```
+1. Make sure you copy the token from Login API and paste in authorization header in the above curl command.
+2. Populate path field with blog_id.
+
+**Through Postman**
+```
+- Open Delete Blog API in postman.
+- Make sure you copy the token from Login API and paste in authorization header as Bearer token.
+- Add blog id in the path field as shown in figure.
+```
+<img width="1285" alt="image" src="https://github.com/ChetanReddy1999/Blog_backend_API/assets/68106127/1dac5e7f-4cd2-490a-b159-7aaa3cd5e979">
+
+Expected response
+```
 {
-    "message": "Blog created successfully"
+    "message": "Blog deleted successfully"
 }
 ```
 
+### Update Blog API:
+API endpoint => [{{baseUrl}}/update/<blog_id>]()
+
+Method => PATCH
+
+**Note: User can Update only his own blog and API returns error if tries to update other user blog.**
+
+**cURL command**
+```
+curl --location --request PATCH 'localhost:5000/update/6637886d4db89bbadcc4ef06' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlbWFkYWNoZXRhbiIsImV4cCI6MTcxNDk5MDkyNH0.TxP1CW27hycEkCl8fFe7OWQjlUE0Zq7FS9TEX7lsnMw' \
+--data '{
+    "title":"Importance of Education for children",
+    "content":"Education is mandatory for everyone and it is a birth right"
+}'
+```
+1. Make sure you copy the token from Login API and paste in authorization header in the above curl command.
+2. Populate fields title, content which you wanted to update.
+
+**Through Postman**
+```
+- Open Update Blog API in postman.
+- Make sure you copy the token from Login API and paste in authorization header as Bearer token.
+- Populate title, content fields as shown in figure.
+```
+<img width="1284" alt="image" src="https://github.com/ChetanReddy1999/Blog_backend_API/assets/68106127/0fd71300-a9d2-4a41-9965-15a8e383255b">
+
+Expected response
+```
+{
+    "message": "Blog updated successfully"
+}
+```
+
+#### Important Note:
+- All APIs except signUp API require authentication to make API call.
+- API calls like Update,Delete blog require authorization, meaning a user can delete delete or update his own blog and cannot have any authority on other blogs.
