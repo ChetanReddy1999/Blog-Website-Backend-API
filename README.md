@@ -13,7 +13,7 @@
 
 
 ## Requirements
-1. User should install mong<br>
+1. User should install mongo<br>
 If User has docker enginer in their machine, they can directly run this command to initialize mongo server in your local.
 ```
 docker run --name my-mongodb -d -p 27017:27017 mongo:latest
