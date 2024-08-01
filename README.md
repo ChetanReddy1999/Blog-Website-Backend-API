@@ -3,7 +3,7 @@
 - This repository contains backend APIs of a Blog website.
 - APIs like create blog, delete blog,list blogs, update blog etc.. were implemented.
 - MongoDB is used as Database to store relevant data.
-- Authentication and authorization mechanisms were implemented as well.
+- Authentication(JWT) and authorization mechanisms were implemented as well.
 
 
 ## Database Architecture
